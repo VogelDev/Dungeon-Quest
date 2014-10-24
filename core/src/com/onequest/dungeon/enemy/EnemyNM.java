@@ -9,7 +9,7 @@ import com.onequest.dungeon.coordinates.Position;
 /**
  * 
  * @author Rob Vogel
- * @version 0.0.0001
+ * @version 0.0.0002
  *
  */
 public class EnemyNM extends Enemy {
@@ -44,7 +44,7 @@ public class EnemyNM extends Enemy {
 	}
 
 	private void init() {
-		speed = 5;
+		speed = 1;
 		enemy = down;
 		System.out.println(worldLoc);
 	}
@@ -118,6 +118,8 @@ public class EnemyNM extends Enemy {
 			move = new Position(r.nextInt(3) - 1, r.nextInt(3) - 1);
 		//}
 
+		moveTo.add(move);
+			
 		isMoving = true;
 		if (moveTo.x > GlobalData.playArea.x || moveTo.x < 0
 				|| moveTo.y > GlobalData.playArea.y || moveTo.y < 0) {
@@ -130,7 +132,7 @@ public class EnemyNM extends Enemy {
 
 		update(delta);
 
-		speed = 5;
+		speed = 1;
 		move.setX(0);
 		move.setY(0);
 
@@ -175,6 +177,7 @@ public class EnemyNM extends Enemy {
 		}
 
 		moving += delta * speed;
+		System.out.println("delta: " + delta);
 
 		if (moving > 2) {
 			moving = 0;
