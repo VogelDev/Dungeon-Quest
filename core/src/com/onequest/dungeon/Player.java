@@ -6,23 +6,29 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.onequest.dungeon.coordinates.Position;
-import com.onequest.dungeon.equipment.Arms;
 import com.onequest.dungeon.equipment.Equipment;
 import com.onequest.dungeon.equipment.EquippedGear;
 
 /**
  * Player object to keep track of position and texture
+ * 
  * @author Rob Vogel
- *
+ * @version 0.0.0001
+ * 
  */
+@SuppressWarnings("unused")
 public class Player {
 	public static String direction;
 	public static Position pos = GlobalData.playerStart;
 	private static Texture player;
-	private static Texture up = new Texture(Gdx.files.internal("Player/back.png"));
-	private static Texture down = new Texture(Gdx.files.internal("Player/front.png"));
-	private static Texture left = new Texture(Gdx.files.internal("Player/left.png"));
-	private static Texture right = new Texture(Gdx.files.internal("Player/right.png"));
+	private static Texture up = new Texture(
+			Gdx.files.internal("Player/back.png"));
+	private static Texture down = new Texture(
+			Gdx.files.internal("Player/front.png"));
+	private static Texture left = new Texture(
+			Gdx.files.internal("Player/left.png"));
+	private static Texture right = new Texture(
+			Gdx.files.internal("Player/right.png"));
 	private float delta;
 	public static int playerLevel;
 	public static int strength;
@@ -38,9 +44,9 @@ public class Player {
 		playerLevel = 1;
 		strength = 1;
 		health = 1;
-		
+
 		inventory = new ArrayList<Equipment>();
-		
+
 		gear = new EquippedGear();
 		direction = "up";
 		update();
@@ -48,6 +54,7 @@ public class Player {
 
 	/**
 	 * Returns player @see com.onequest.dungeon.Position
+	 * 
 	 * @return
 	 */
 	public static Position getPos() {
@@ -55,7 +62,9 @@ public class Player {
 	}
 
 	/**
-	 * Currently not being used, replaced with a private method in @see com.onequest.dungeon.World
+	 * Currently not being used, replaced with a private method in @see
+	 * com.onequest.dungeon.World
+	 * 
 	 * @param direction
 	 * @param canMove
 	 */
@@ -76,7 +85,7 @@ public class Player {
 		}
 
 		Player.direction = direction;
-		
+
 		update();
 	}
 
@@ -97,46 +106,51 @@ public class Player {
 			player = right;
 		}
 	}
-	
+
 	/**
 	 * Returns x coordinate
+	 * 
 	 * @return
 	 */
-	public static int getX(){
+	public static int getX() {
 		return pos.x;
 	}
-	
+
 	/**
 	 * Returns y coordinate
+	 * 
 	 * @return
 	 */
-	public static int getY(){
+	public static int getY() {
 		return pos.y;
 	}
 
 	/**
 	 * returns Texture of the player
+	 * 
 	 * @return
 	 */
 	public static Texture getTexture() {
 		return player;
 	}
-	
+
 	/**
 	 * Returns the @see com.onequest.dungeon.Position of the player
+	 * 
 	 * @param x
 	 * @param y
 	 */
-	public static void setPos(int x, int y){
+	public static void setPos(int x, int y) {
 		pos.x = x;
 		pos.y = y;
 	}
-	
+
 	/**
 	 * Sets the @see com.onequest.dungeon.Position of the player
+	 * 
 	 * @param pos
 	 */
-	public static void setPos(Position pos){
+	public static void setPos(Position pos) {
 		Player.pos = pos;
 	}
 
@@ -148,12 +162,13 @@ public class Player {
 	}
 
 	/**
-	 * @param playerLevel the playerLevel to set
+	 * @param playerLevel
+	 *            the playerLevel to set
 	 */
 	public static void setLvl(int playerLevel) {
 		Player.playerLevel = playerLevel;
 	}
-	
+
 	/**
 	 * Level the player up once
 	 */
@@ -169,7 +184,8 @@ public class Player {
 	}
 
 	/**
-	 * @param strength the strength to set
+	 * @param strength
+	 *            the strength to set
 	 */
 	public static void setStrength(int strength) {
 		Player.strength = strength;
@@ -183,25 +199,28 @@ public class Player {
 	}
 
 	/**
-	 * @param health the health to set
+	 * @param health
+	 *            the health to set
 	 */
 	public static void setHealth(int health) {
 		Player.health = health;
 	}
-	
+
 	/**
 	 * 
-	 * @param gear the gear to equip
+	 * @param gear
+	 *            the gear to equip
 	 */
-	public static void equip(Equipment gear){
+	public static void equip(Equipment gear) {
 		Player.gear.equip(gear);
 	}
 
 	public static void addInventory(Equipment item) {
 		inventory.add(item);
 	}
+
 	public static void remInventory(Equipment item) {
 		inventory.remove(item);
 	}
-	
+
 }
