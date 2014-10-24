@@ -1,0 +1,24 @@
+Adjust floor and wall types to match - done
+
+To do:
+	Commenting - done/ish
+	Teleporters - done
+	moving object for over teleporters - done
+	UI
+	Menu
+	Instructions
+	equipment - started
+	inventory system - started
+	treasure chests
+	enemies
+	player attack
+	enemy attack
+	dying
+	winning the level
+	game over
+	creating new level
+	saving player
+	high scores
+	saving map
+	
+	y = 15 * e^.2x
