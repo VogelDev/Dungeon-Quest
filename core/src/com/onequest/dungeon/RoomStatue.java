@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 import com.onequest.dungeon.coordinates.Position;
 
+/**
+ * Statue room object. Can be moved by the player only once.
+ * 
+ * @author Rob Vogel
+ * @version 0.0.0001
+ *
+ */
 public class RoomStatue extends RoomObject {
 
 	public RoomStatue(Position pos, Position worldLoc, Position size,
