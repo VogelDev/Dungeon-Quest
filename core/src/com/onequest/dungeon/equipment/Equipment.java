@@ -1,5 +1,9 @@
 package com.onequest.dungeon.equipment;
-
+/**
+ * 
+ * @author ccobb
+ * @version 0.0.0001
+ */
 public class Equipment {
 
 	int reqLvl;
