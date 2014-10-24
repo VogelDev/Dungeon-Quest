@@ -1,16 +1,8 @@
 package com.onequest.dungeon;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.onequest.dungeon.coordinates.Position;
@@ -19,6 +11,7 @@ import com.onequest.dungeon.coordinates.Position;
  * Center of application, handles controls and drawing to the screen
  * 
  * @author Rob Vogel
+ * @version 0.0.0001
  * 
  */
 public class WorldDesktop extends World{
