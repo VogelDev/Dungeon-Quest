@@ -1,7 +1,6 @@
 package com.onequest.dungeon.equipment;
 
 import com.onequest.dungeon.Player;
-import com.onequest.dungeon.equipment.*;
 
 /**
  * 
