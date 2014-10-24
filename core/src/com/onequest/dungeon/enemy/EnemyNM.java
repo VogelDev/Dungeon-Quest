@@ -6,6 +6,12 @@ import com.onequest.dungeon.GlobalData;
 import com.onequest.dungeon.MainClass;
 import com.onequest.dungeon.coordinates.Position;
 
+/**
+ * 
+ * @author Rob Vogel
+ * @version 0.0.0001
+ *
+ */
 public class EnemyNM extends Enemy {
 
 	Position worldLoc;
@@ -67,8 +73,6 @@ public class EnemyNM extends Enemy {
 	 */
 	public boolean move(Position playerPos, Position worldLoc, float delta) {
 
-		int dir = r.nextInt(1000) % 2;
-		double distance = 0;
 		Position moveTo = pos.clone();
 
 		/*
