@@ -1,5 +1,11 @@
 package com.onequest.dungeon.equipment;
 
+/**
+ * 
+ * @author Rob Vogel
+ * @version 0.0.0001
+ *
+ */
 public class Weapon extends Equipment {
 
 	public Weapon() {
