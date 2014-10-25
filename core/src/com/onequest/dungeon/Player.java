@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.onequest.dungeon.coordinates.Position;
+import com.onequest.dungeon.enemy.Enemy;
 import com.onequest.dungeon.equipment.Equipment;
 import com.onequest.dungeon.equipment.EquippedGear;
 
@@ -13,7 +14,7 @@ import com.onequest.dungeon.equipment.EquippedGear;
  * Player object to keep track of position and texture
  * 
  * @author Rob Vogel
- * @version 0.0.0001
+ * @version 0.0.0002
  * 
  */
 @SuppressWarnings("unused")
@@ -36,6 +37,7 @@ public class Player {
 	private static EquippedGear gear;
 	private static ArrayList<Equipment> inventory;
 	private static Rectangle bounds;
+	private static ArrayList<Damage> damage;
 
 	/**
 	 * Empty constructor to create a player character
@@ -46,7 +48,7 @@ public class Player {
 		health = 1;
 
 		inventory = new ArrayList<Equipment>();
-
+		damage = new ArrayList<Damage>();
 		gear = new EquippedGear();
 		direction = "up";
 		update();
@@ -221,6 +223,14 @@ public class Player {
 
 	public static void remInventory(Equipment item) {
 		inventory.remove(item);
+	}
+	
+	public static void takeDamage(Damage dmg){
+		damage.add(dmg);
+	}
+	
+	public static void attack(Damage dmg, Enemy enemy){
+		enemy.takeDamage(dmg);
 	}
 
 }

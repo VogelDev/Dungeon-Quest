@@ -1,17 +1,21 @@
 package com.onequest.dungeon.enemy;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.onequest.dungeon.MainClass;
+import com.onequest.dungeon.Player;
 import com.onequest.dungeon.coordinates.Position;
+import com.onequest.dungeon.Damage;
 
 /**
- * Enemy, this move method dances around the screen
+ * Enemy, this move method follows the player around the screen
  * 
  * @author Rob Vogel
+ * @version 0.0.0002
  * 
  */
 public class Enemy {
@@ -34,6 +38,7 @@ public class Enemy {
 	Vector2 loc;
 	boolean follows;
 	int speed;
+	ArrayList<Damage> damage;
 
 	public Enemy() {
 		init();
@@ -62,6 +67,7 @@ public class Enemy {
 		moving = 0;
 		follows = true;
 		speed = 5;
+		damage = new ArrayList<Damage>();
 	}
 
 	public boolean move(Position playerPos, float delta) {
@@ -70,12 +76,16 @@ public class Enemy {
 
 		if (Position.right(pos).equals(playerPos)) {
 			direction = "right";
+			attackPlayer();
 		} else if (Position.left(pos).equals(playerPos)) {
 			direction = "left";
+			attackPlayer();
 		} else if (Position.up(pos).equals(playerPos)) {
 			direction = "up";
+			attackPlayer();
 		} else if (Position.down(pos).equals(playerPos)) {
 			direction = "down";
+			attackPlayer();
 		} else if (isMoving) {
 			// do nothing
 		} else {
@@ -135,6 +145,10 @@ public class Enemy {
 		return false;
 	}
 
+	private void attackPlayer() {
+		Player.takeDamage(new Damage(strength, level));
+	}
+
 	public void update(float delta) {
 
 		if (direction == "up") {
@@ -182,5 +196,9 @@ public class Enemy {
 	 */
 	public void setPos(Position pos) {
 		this.pos = pos;
+	}
+	
+	public void takeDamage(Damage dmg){
+		damage.add(dmg);
 	}
 }
